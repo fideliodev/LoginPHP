@@ -163,43 +163,15 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                     </form>
 </div>
 
-                
-
-
-
-  
-
     <?php
         if (isset($_POST['login'])) {
                 // login with username and password
                 if ($KeyAuthApp->login($_POST['username'], $_POST['password'])) {
-                        echo "<meta http-equiv='Refresh' Content='2; url=dashboard/'>";
+                        echo "<meta http-equiv='Refresh' Content='2;  url=dashboard/index.php'>";
                         $KeyAuthApp->success("You have successfully logged in!");
                 }
         }
 
-        if (isset($_POST['register'])) {
-                // register with username,password,key
-                if ($KeyAuthApp->register($_POST['username'], $_POST['password'], $_POST['key'])) {
-                        echo "<meta http-equiv='Refresh' Content='2; url=dashboard/'>";
-                        $KeyAuthApp->success("You have successfully registered!");
-                }
-        }
-
-        if (isset($_POST['license'])) {
-                // login with just key
-                if ($KeyAuthApp->license($_POST['key'])) {
-                        echo "<meta http-equiv='Refresh' Content='2; url=dashboard/'>";
-                        $KeyAuthApp->success("You have successfully logged in!");
-                }
-        }
-
-        if (isset($_POST['upgrade'])) {
-                if ($KeyAuthApp->upgrade($_POST['username'], $_POST['key'])) {
-                        // don't login, upgrade function is not for authentication, it's simply for redeeming keys
-                        $KeyAuthApp->success("Upgraded Successfully! Now login please.");
-                }
-        }
         ?>
 
 
